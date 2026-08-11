@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Reindirizza direttamente alla pagina ufficiale di TheFork del ristorante Al Morè
-            const theForkUrl = 'https://www.thefork.it/ristorante/al-more-r813932';
+            const theForkUrl = 'https://www.thefork.it/ristorante/al-more-r813932#booking';
 
             window.location.href = theForkUrl;
         });
