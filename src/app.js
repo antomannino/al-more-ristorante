@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dateInput.value = formattedToday;
     }
 
-    // 5. RESERVATION FORM HANDLING -> WHATSAPP REDIRECT (Data GG-MM-AAAA)
+    // 5. RESERVATION FORM HANDLING -> THEFORK REDIRECT
     const bookingForm = document.getElementById('booking-form');
 
     if (bookingForm) {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = document.getElementById('name').value;
             const guests = document.getElementById('guests').value;
-            const rawDate = document.getElementById('date').value; // Formato nativo HTML: aaaa-mm-gg
+            const rawDate = document.getElementById('date').value;
             const time = document.getElementById('time').value;
 
             if (!name || !rawDate || !time) {
@@ -120,23 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Trasforma la data da aaaa-mm-gg a gg-mm-aaaa
-            const parts = rawDate.split('-');
-            const italianDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+            // Reindirizza direttamente alla pagina ufficiale di TheFork del ristorante Al Morè
+            const theForkUrl = 'https://www.thefork.it/ristorante/al-more-r813932';
 
-            // Numero WhatsApp del ristorante
-            const phoneNumber = '393483294135';
-
-            // Messaggio con data in formato gg-mm-aaaa
-            const message = `Salve, vorrei effettuare una prenotazione.%0A%0A` +
-                `Nome: ${name}%0A` +
-                `Ospiti: ${guests}%0A` +
-                `Data: ${italianDate}%0A` +
-                `Ora: ${time}`;
-
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-
-            window.location.href = whatsappUrl;
+            window.location.href = theForkUrl;
         });
     }
 });
