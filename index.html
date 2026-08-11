@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Morè | Enogastronomia & Lounge Bar - Messina</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        cursive: ['"Great Vibes"', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            mint: '#20e090',
+                            dark: '#08080a',
+                            'dark-card': '#111115',
+                            'dark-border': '#22222a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #08080a;
+            color: #f4f4f5;
+        }
+        .glass-nav {
+            background: rgba(8, 8, 10, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(8,8,10,0.65) 0%, rgba(8,8,10,0.98) 100%);
+        }
+        .card-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .adaptive-img-card {
+            background-color: #111115;
+            border: 1px solid #22222a;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .adaptive-img-card:hover {
+            border-color: #20e090;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(32, 224, 144, 0.15);
+        }
+        .white-neon-glow {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+        }
+        .white-neon-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+        .btn-green-hover {
+            transition: all 0.3s ease;
+        }
+        .btn-green-hover:hover {
+            background-color: #20e090 !important;
+            color: #08080a !important;
+            border-color: #20e090 !important;
+            box-shadow: 0 0 20px rgba(32, 224, 144, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-zinc-100 font-sans selection:bg-white selection:text-brand-dark overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 py-0" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- LOGO BIANCO NEON TRASPARENTE -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 relative flex items-center justify-center border border-white/40 rounded">
+                        <span class="font-cursive text-xl text-white font-bold white-neon-text">AM</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-serif font-bold tracking-widest text-white white-neon-text">AL MORÈ</span>
+                        <span class="text-[9px] font-semibold tracking-widest text-zinc-400 uppercase -mt-1">Enogastronomia & Lounge Bar</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#chi-siamo" class="text-zinc-300 hover:text-brand-mint transition duration-150 text-sm font-medium tracking-wide uppercase">Chi Siamo</a>
+                <a href="#cibo" class="text-zinc-300 hover:text-brand-mint transition duration-150 text-sm font-medium tracking-wide uppercase">Specialità</a>
+                <a href="#menu" class="text-zinc-300 hover:text-brand-mint transition duration-150 text-sm font-medium tracking-wide uppercase">Il Menu</a>
+                <a href="#eventi" class="text-zinc-300 hover:text-brand-mint transition duration-150 text-sm font-medium tracking-wide uppercase">Eventi</a>
+                <a href="#recensioni" class="text-zinc-300 hover:text-brand-mint transition duration-150 text-sm font-medium tracking-wide uppercase">Recensioni</a>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://wa.me/393483294135" target="_blank" class="text-brand-mint hover:text-white transition duration-300 text-lg mr-2" title="Contattaci su WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#prenota" class="inline-flex items-center justify-center px-5 py-2.5 border border-white/60 text-xs font-semibold uppercase tracking-wider text-white btn-green-hover rounded-none">
+                    Prenota un Tavolo
+                </a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-zinc-400 hover:text-white hover:bg-brand-dark-card focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-brand-dark border-t border-brand-dark-border transition duration-300" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#chi-siamo" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-brand-dark-card">Chi Siamo</a>
+            <a href="#cibo" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-brand-dark-card">Specialità</a>
+            <a href="#menu" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-brand-dark-card">Il Menu</a>
+            <a href="#eventi" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-brand-dark-card">Eventi & Catering</a>
+            <a href="#recensioni" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-brand-dark-card">Recensioni</a>
+            <a href="#prenota" class="block w-full text-center px-3 py-3 bg-white text-brand-dark font-semibold uppercase tracking-wide btn-green-hover">Prenota Ora</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="relative min-h-screen pt-24 pb-12 flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0 flex items-center justify-center">
+        <img src="https://files.supersite.aruba.it/media/20529_95005243f79837ff4655580e8fd999045dbe7e5d.jpeg/v1/w_698,h_0/95005243f79837ff4655580e8fd999045dbe7e5d.webp"
+             alt="Al Morè Atmosphere Messina"
+             class="w-full h-full object-cover opacity-30" />
+        <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+
+        <!-- LOGO IN HERO -->
+        <div class="flex justify-center mb-8">
+            <div class="relative w-64 sm:w-80 h-auto py-8 px-8 border border-white/60 flex flex-col items-center justify-center backdrop-blur-md bg-black/40 rounded white-neon-glow">
+                <div class="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-white"></div>
+                <div class="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-white"></div>
+
+                <span class="font-cursive text-5xl sm:text-7xl text-white tracking-wide white-neon-text">Al Morè</span>
+                <span class="text-[10px] sm:text-xs font-semibold tracking-widest text-zinc-300 uppercase mt-3 border-t border-white/20 pt-2 w-full text-center">
+                        ENOGASTRONOMIA & LOUNGE BAR
+                    </span>
+            </div>
+        </div>
+
+        <span class="text-zinc-300 font-serif italic text-lg sm:text-2xl mb-2 block tracking-wide">Messina • Via XXIV Maggio, 59 A/B</span>
+        <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+            Pranzo veloce, ravioleria artigianale, terrine ricche e strapanini gourmet nel cuore di Messina.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-white text-brand-dark font-bold text-sm uppercase tracking-widest btn-green-hover shadow-xl">
+                Esplora il Menu
+            </a>
+            <a href="#prenota" class="w-full sm:w-auto px-8 py-4 border-2 border-white/60 text-white font-bold text-sm uppercase tracking-widest btn-green-hover transition duration-300">
+                Prenota un Tavolo
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Le Nostre Radici</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-6 leading-tight">Gusto, Passione & Tradizione</h2>
+            <p class="text-zinc-300 text-base sm:text-lg mb-6 leading-relaxed font-light">
+                Situato nel centro di Messina, vicino al Duomo, <strong class="text-white">Al Morè</strong> è un punto di riferimento per l'enogastronomia locale ed un ambiente intimo e riservato.
+            </p>
+            <p class="text-zinc-400 text-sm sm:text-base mb-8 leading-relaxed">
+                Offriamo soluzioni perfette per ogni momento della giornata: dalle opzioni per un pranzo veloce con ravioleria fatta in casa e risi, ai panini caldi serviti fino alle 18:00, fino ai favolosi piatti apericena e gli strapanini della sera accompagnati da cocktail d'autore preparati con maestria dai nostri bartender.
+            </p>
+            <div class="flex gap-8 items-center">
+                <a href="https://www.google.com/search?q=Al+Morè+Recensioni#lkt=LocalPoiReviews" target="_blank" class="border-l-2 border-white/60 pl-4 hover:border-blue-400 transition group">
+                    <span class="block text-3xl font-serif font-bold text-white group-hover:text-blue-400 transition">4.8 / 5</span>
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest group-hover:text-zinc-300 transition">Google Reviews (36)</span>
+                </a>
+                <a href="https://www.thefork.it/ristorante/al-more-r813932" target="_blank" class="border-l-2 border-white/60 pl-4 hover:border-emerald-400 transition group">
+                    <span class="block text-3xl font-serif font-bold text-white group-hover:text-emerald-400 transition">8.7 / 10</span>
+                    <span class="text-xs text-zinc-500 uppercase tracking-widest group-hover:text-zinc-300 transition">TheFork (61)</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- FOTO DEI BARMAN -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+            <div class="adaptive-img-card">
+                <img src="https://files.supersite.aruba.it/media/20529_f490e82f67349653a201dd1b44cb9bf876a26f3d.jpeg/v1/w_0,h_600/f490e82f67349653a201dd1b44cb9bf876a26f3d.webp" alt="Barman Al Morè al Lavoro" class="w-full h-auto rounded" />
+            </div>
+            <div class="adaptive-img-card">
+                <img src="https://files.supersite.aruba.it/media/20529_29c92f19e79372392be8f66bd7572af317365da1.jpeg/v1/w_0,h_350/29c92f19e79372392be8f66bd7572af317365da1.jpg" alt="Cocktail Bar Al Morè" class="w-full h-auto rounded" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOTO DEL CIBO REALI (CON LA NUOVA FOTO DEL TAVOLO CANDELA) -->
+<section id="cibo" class="py-20 bg-brand-dark-card border-y border-brand-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Qualità & Sapore</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Le Nostre Creazioni</h2>
+            <div class="w-16 h-0.5 bg-white/40 mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-start">
+            <div class="adaptive-img-card">
+                <img src="https://files.supersite.aruba.it/media/20529_6f8195df1afc351cf9c250f619cb374016290f8c.jpeg/v1/w_698,h_0/6f8195df1afc351cf9c250f619cb374016290f8c.webp" alt="Piatti Gourmet Al Morè" class="w-full h-auto rounded" />
+            </div>
+            <div class="adaptive-img-card">
+                <img src="https://files.supersite.aruba.it/media/20529_7cc2e2cce5d6527a3bc13419d1c5fb7cbd78d481.jpeg/v1/w_698,h_0/7cc2e2cce5d6527a3bc13419d1c5fb7cbd78d481.webp" alt="Ravioli e Riso Al Morè" class="w-full h-auto rounded" />
+            </div>
+            <div class="adaptive-img-card">
+                <img src="https://files.supersite.aruba.it/media/20529_58de458979037dc49bfd5e8c51af240323d2b9e6.jpeg/v1/w_698,h_0/58de458979037dc49bfd5e8c51af240323d2b9e6.webp" alt="Atmosfera Tavolo Al Morè" class="w-full h-auto rounded" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU REALE SECTION -->
+<section id="menu" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+        <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Pranzo Veloce & Cena</span>
+        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Il Menù</h2>
+        <div class="w-16 h-0.5 bg-white/40 mx-auto mt-4 mb-4"></div>
+        <p class="text-zinc-500 text-xs sm:text-sm">Coperto: € 1,00</p>
+    </div>
+
+    <!-- Menu Tabs Filter -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12" id="menu-tabs">
+        <button class="menu-tab-btn active bg-white text-brand-dark border border-white px-5 py-2.5 font-bold text-xs uppercase tracking-widest btn-green-hover" data-category="tutti">Tutti</button>
+        <button class="menu-tab-btn border border-zinc-800 text-zinc-400 hover:text-white px-5 py-2.5 font-bold text-xs uppercase tracking-widest btn-green-hover" data-category="ravioleria">Ravioleria e Riso</button>
+        <button class="menu-tab-btn border border-zinc-800 text-zinc-400 hover:text-white px-5 py-2.5 font-bold text-xs uppercase tracking-widest btn-green-hover" data-category="terrine">Le Nostre Terrine</button>
+        <button class="menu-tab-btn border border-zinc-800 text-zinc-400 hover:text-white px-5 py-2.5 font-bold text-xs uppercase tracking-widest btn-green-hover" data-category="panini">Panini Caldi (fino alle 18)</button>
+        <button class="menu-tab-btn border border-zinc-800 text-zinc-400 hover:text-white px-5 py-2.5 font-bold text-xs uppercase tracking-widest btn-green-hover" data-category="apericena">Apericena & Strapanini</button>
+    </div>
+
+    <!-- Menu Grid Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="menu-container">
+
+        <!-- CATEGORIA: RAVIOLERIA E RISO -->
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="ravioleria">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Riso Gratinato</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 5,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Riso, pomodori, basilico, grana, mozzarella.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="ravioleria">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Arancino Scomposto</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 6,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Riso, burro, zafferano, ragù, formaggio, pangrattato fritto.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="ravioleria">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Ravioli al Brasato con Burro e Salvia</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Vitello, sedano, carota, pomodoro, burro e salvia.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="ravioleria">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Ravioli di Verdure con Rucola e Stracciatella</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Verdure di stagione, rucola, olio evo e stracciatella.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="ravioleria">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Ravioli ai Gamberi con Crema Limone e Salmone Affumicato</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Limone, crema di latte, zafferano, gamberi, salmone affumicato.</p>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: LE NOSTRE TERRINE -->
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="terrine">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Terrina Messinese</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Braciolettine di carne e patate al forno.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="terrine">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Terrina dello Stretto</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 8,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Polpettine di pesce spada, cipolla caramellata.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="terrine">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Terrina dei Nebrodi</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Salsiccia, patate al forno, fonduta di provola.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="terrine">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Terrina Al Morè</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 7,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Patate al forno, polpettine di vitello, formaggio, pancetta croccante.</p>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: I NOSTRI PANINI CALDI (FINO ALLE 18) -->
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="panini">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Pomodoro Provola e Origano</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 1,50</span>
+                </div>
+                <p class="text-zinc-500 text-xs uppercase tracking-wider">Servito fino alle 18:00</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="panini">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Cotto e Provola</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 2,00</span>
+                </div>
+                <p class="text-zinc-500 text-xs uppercase tracking-wider">Servito fino alle 18:00</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="panini">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Salame e Provola</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 2,00</span>
+                </div>
+                <p class="text-zinc-500 text-xs uppercase tracking-wider">Servito fino alle 18:00</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="panini">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Crudo e Mozzarella</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 3,00</span>
+                </div>
+                <p class="text-zinc-500 text-xs uppercase tracking-wider">Servito fino alle 18:00</p>
+            </div>
+        </div>
+
+        <!-- CATEGORIA: APERICENA E STRAPANINI DELLA SERA -->
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow md:col-span-2" data-cat="apericena">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <h3 class="text-white font-serif text-xl font-bold">Piatto Apericena</h3>
+                        <span class="text-zinc-400 text-xs">Dalle 18:00 in poi</span>
+                    </div>
+                    <span class="text-white font-bold font-serif text-xl">€ 9,00</span>
+                </div>
+                <p class="text-zinc-300 text-sm leading-relaxed mt-2">Patatine e snack, tagliere con salumi e formaggi, mini hamburger fritti, degustazione rustici della casa.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="apericena">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Strapanino Montalbano</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 8,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Polpetta maxi di vitello con provola, patate al forno, guanciale croccante, lattuga, pomodoro, ketchup e maionese a piacere.</p>
+            </div>
+        </div>
+
+        <div class="menu-item border border-zinc-800 bg-brand-dark-card p-6 rounded-sm flex flex-col justify-between transition duration-300 card-glow" data-cat="apericena">
+            <div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-white font-serif text-lg font-bold">Strapanino Bronte a Mare</h3>
+                    <span class="text-white font-bold font-serif text-xl">€ 9,00</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">Gamberoni gratinati, crema di pistacchio e mandorle.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-8 text-xs text-zinc-500 italic">
+        * Alcuni alimenti esposti potrebbero essere surgelati ma comunque di ottima qualità, chiedere al cameriere.<br>
+        Tutti i nostri prodotti possono contenere allergeni come da tabella finale.
+    </div>
+</section>
+
+<!-- EVENTI & CATERING (CON SLIDER PER AL MORÈ, TENNIS CLUB E PALAZZO DELLA SETA) -->
+<section id="eventi" class="py-24 bg-brand-dark-card border-y border-brand-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Location Partner</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Eventi & Catering</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base mt-4">
+                Organizziamo eventi presso il nostro ristorante in Via XXIV Maggio 59 a Messina, al Tennis Club Messina, e in una elegante sala presso il Palazzo della Seta.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- SCHEDA 1: RISTORANTE AL MORÈ (SLIDER CAROSELLO 2 IMMAGINI) -->
+            <div class="border border-zinc-800 bg-brand-dark p-6 rounded-sm flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Al Morè Ristorante</h3>
+                    <p class="text-zinc-400 text-xs font-semibold uppercase mb-4">Via XXIV Maggio 59, Messina</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">Ambiente intimo ed accogliente nel centro di Messina per feste private e cene speciali.</p>
+                </div>
+
+                <!-- Slider Container Al Morè -->
+                <div class="relative group mt-2">
+                    <div class="adaptive-img-card overflow-hidden relative">
+                        <div class="slider-slide-more transition-opacity duration-500 block">
+                            <img src="https://files.supersite.aruba.it/media/20529_95005243f79837ff4655580e8fd999045dbe7e5d.jpeg/v1/w_698,h_0/95005243f79837ff4655580e8fd999045dbe7e5d.webp" alt="Al Morè Ristorante 1" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-more transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_0d790168f7c0804c5a09ba2d46f7f6c258e4c18d.jpeg/v1/w_0,h_600/0d790168f7c0804c5a09ba2d46f7f6c258e4c18d.webp" alt="Al Morè Ristorante 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-more transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_6887b9f6aef0d935c68fff4233632b0e76072f4f.jpeg/v1/w_0,h_350/6887b9f6aef0d935c68fff4233632b0e76072f4f.jpeg" alt="Al Morè Ristorante 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-more transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_bc88561bb1c7b77ce1ff67eecb1446c9afa1a7e9.jpeg/v1/w_0,h_600/bc88561bb1c7b77ce1ff67eecb1446c9afa1a7e9.webp" alt="Al Morè Ristorante 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-more transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_225cf6928e0206b662d138d1c815eb9545593bbd.jpeg/v1/w_0,h_600/225cf6928e0206b662d138d1c815eb9545593bbd.webp" alt="Al Morè Ristorante 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-more transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_29c92f19e79372392be8f66bd7572af317365da1.jpeg/v1/w_0,h_600/29c92f19e79372392be8f66bd7572af317365da1.webp" alt="Al Morè Ristorante 2" class="w-full h-auto rounded" />
+                        </div>
+
+                        <!-- Frecce di Navigazione -->
+                        <button onclick="moveSlider('more', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="moveSlider('more', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    <!-- Indicatori Pallini -->
+                    <div class="flex justify-center gap-1.5 mt-3">
+                        <span class="dot-more w-2 h-2 rounded-full bg-brand-mint cursor-pointer" onclick="setSlider('more', 0)"></span>
+                        <span class="dot-more w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('more', 1)"></span>
+                        <span class="dot-more w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('more', 2)"></span>
+                        <span class="dot-more w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('more', 3)"></span>
+                        <span class="dot-more w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('more', 4)"></span>
+                        <span class="dot-more w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('more', 5)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCHEDA 2: TENNIS CLUB MESSINA (SLIDER CAROSELLO) -->
+            <div class="border border-zinc-800 bg-brand-dark p-6 rounded-sm flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Tennis Club Messina</h3>
+                    <p class="text-zinc-400 text-xs font-semibold uppercase mb-4">Messina</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">Spazi all'aperto immersi nel verde per eventi sportivi, ricevimenti e catering.</p>
+                </div>
+
+                <!-- Slider Container Tennis Club -->
+                <div class="relative group mt-2">
+                    <div class="adaptive-img-card overflow-hidden relative">
+                        <div class="slider-slide-tennis transition-opacity duration-500 block">
+                            <img src="https://files.supersite.aruba.it/media/20529_611785dfdad2c16b76a9eaae0f2428251f99f060.jpeg/v1/w_0,h_600/611785dfdad2c16b76a9eaae0f2428251f99f060.webp" alt="Tennis Club Messina 1" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-tennis transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_37e13411ff901dd73b16445178a93bb8e302d3a8.jpeg/v1/w_0,h_600/37e13411ff901dd73b16445178a93bb8e302d3a8.webp" alt="Tennis Club Messina 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-tennis transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_ca971d7c461e0ed44a5cf464cd28b390204b6124.jpeg/v1/w_0,h_600/ca971d7c461e0ed44a5cf464cd28b390204b6124.webp" alt="Tennis Club Messina 3" class="w-full h-auto rounded" />
+                        </div>
+
+
+                        <!-- Frecce di Navigazione -->
+                        <button onclick="moveSlider('tennis', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="moveSlider('tennis', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    <!-- Indicatori Pallini -->
+                    <div class="flex justify-center gap-1.5 mt-3">
+                        <span class="dot-tennis w-2 h-2 rounded-full bg-brand-mint cursor-pointer" onclick="setSlider('tennis', 0)"></span>
+                        <span class="dot-tennis w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('tennis', 1)"></span>
+                        <span class="dot-tennis w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('tennis', 2)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCHEDA 3: PALAZZO DELLA SETA (SLIDER CAROSELLO) -->
+            <div class="border border-zinc-800 bg-brand-dark p-6 rounded-sm flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Palazzo della Seta</h3>
+                    <p class="text-zinc-400 text-xs font-semibold uppercase mb-4">Messina</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">Elegante sala d'epoca per cerimonie ed eventi di grande prestigio.</p>
+                </div>
+
+                <!-- Slider Container Palazzo della Seta -->
+                <div class="relative group mt-2">
+                    <div class="adaptive-img-card overflow-hidden relative">
+                        <div class="slider-slide-palazzo transition-opacity duration-500 block">
+                            <img src="https://files.supersite.aruba.it/media/20529_deabcc12a63bb4b4bafbb3e17b35394084bcf04a.jpeg/v1/w_0,h_600/deabcc12a63bb4b4bafbb3e17b35394084bcf04a.webp" alt="Palazzo della Seta 1" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-palazzo transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_678aa72bad3c51832eea434a43f565ddc5485321.jpeg/v1/w_0,h_600/678aa72bad3c51832eea434a43f565ddc5485321.webp" alt="Palazzo della Seta 2" class="w-full h-auto rounded" />
+                        </div>
+                        <div class="slider-slide-palazzo transition-opacity duration-500 hidden">
+                            <img src="https://files.supersite.aruba.it/media/20529_599f68092e02e59f85fb50dc254f59539f701c5f.jpeg/v1/w_0,h_600/599f68092e02e59f85fb50dc254f59539f701c5f.webp" alt="Palazzo della Seta 3" class="w-full h-auto rounded" />
+                        </div>
+
+                        <!-- Frecce di Navigazione -->
+                        <button onclick="moveSlider('palazzo', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="moveSlider('palazzo', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-brand-dark/80 hover:bg-white text-white hover:text-black w-8 h-8 rounded-full flex items-center justify-center transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    <!-- Indicatori Pallini -->
+                    <div class="flex justify-center gap-1.5 mt-3">
+                        <span class="dot-palazzo w-2 h-2 rounded-full bg-brand-mint cursor-pointer" onclick="setSlider('palazzo', 0)"></span>
+                        <span class="dot-palazzo w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('palazzo', 1)"></span>
+                        <span class="dot-palazzo w-2 h-2 rounded-full bg-zinc-700 cursor-pointer" onclick="setSlider('palazzo', 2)"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- RECENSIONI REALI CON LINK DIRETTI E BADGE COLORATI -->
+<section id="recensioni" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+        <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Dicono di Noi</span>
+        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Recensioni Reali</h2>
+        <div class="w-16 h-0.5 bg-white/40 mx-auto mt-4 mb-6"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- RECENSIONE 1: GOOGLE (BADGE AZZURRO/BLU GOOGLE) -->
+        <a href="https://www.google.com/search?q=Al+Mor%C3%A8+Recensioni#lkt=LocalPoiReviews" target="_blank" class="block bg-brand-dark-card border border-zinc-800 hover:border-blue-500/60 p-8 rounded-sm transition duration-300 card-glow group">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex text-amber-400 gap-1 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <span class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/30 rounded flex items-center gap-1.5">
+                        <i class="fa-brands fa-google"></i> Google 5/5
+                    </span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed italic mb-6">
+                "Discrezione, gentilezza e gusti unici. Belle persone e buon cibo, a Messina vicino al centro, vicino al Duomo..."
+            </p>
+            <div class="border-t border-zinc-800 pt-4 flex justify-between items-center text-xs">
+                <span class="text-white font-semibold group-hover:text-blue-400 transition">Gianluca Manco</span>
+                <span class="text-zinc-500 group-hover:text-zinc-300 transition">Leggi su Google <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
+            </div>
+        </a>
+
+        <!-- RECENSIONE 2: THEFORK (BADGE VERDE/ROSSO THEFORK) -->
+        <a href="https://www.thefork.it/ristorante/al-more-r813932" target="_blank" class="block bg-brand-dark-card border border-zinc-800 hover:border-emerald-500/60 p-8 rounded-sm transition duration-300 card-glow group">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex text-amber-400 gap-1 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <span class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded flex items-center gap-1.5">
+                        <i class="fa-solid fa-utensils"></i> TheFork 9/10
+                    </span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed italic mb-6">
+                "Cibo buono, ambiente accogliente e servizio ottimo (la ragazza che ci ha servito è stata veramente molto gentile e attenta)..."
+            </p>
+            <div class="border-t border-zinc-800 pt-4 flex justify-between items-center text-xs">
+                <span class="text-white font-semibold group-hover:text-emerald-400 transition">Recensore TheFork</span>
+                <span class="text-zinc-500 group-hover:text-zinc-300 transition">Leggi su TheFork <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
+            </div>
+        </a>
+
+        <!-- RECENSIONE 3: THEFORK (BADGE VERDE/ROSSO THEFORK) -->
+        <a href="https://www.thefork.it/ristorante/al-more-r813932" target="_blank" class="block bg-brand-dark-card border border-zinc-800 hover:border-emerald-500/60 p-8 rounded-sm transition duration-300 card-glow group">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex text-amber-400 gap-1 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <span class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded flex items-center gap-1.5">
+                        <i class="fa-solid fa-utensils"></i> TheFork 8/10
+                    </span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed italic mb-6">
+                "Locale interno piccolo ed intimo. Molto buona la crocchia, ovvero una sorta di pinsa più alta e morbida, variamente condita..."
+            </p>
+            <div class="border-t border-zinc-800 pt-4 flex justify-between items-center text-xs">
+                <span class="text-white font-semibold group-hover:text-emerald-400 transition">Recensore TheFork</span>
+                <span class="text-zinc-500 group-hover:text-zinc-300 transition">Leggi su TheFork <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- PRENOTAZIONI -->
+<section id="prenota" class="py-24 bg-brand-dark-card border-t border-brand-dark-border">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <span class="text-zinc-400 font-semibold tracking-widest uppercase text-sm block mb-2">Riserva il Tuo Posto</span>
+            <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Prenota un Tavolo</h2>
+        </div>
+        <div class="bg-brand-dark border border-zinc-800 p-8 sm:p-12">
+            <form id="booking-form" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-zinc-400 text-xs font-semibold uppercase mb-2">Nome Completo</label>
+                        <input type="text" id="name" required class="w-full bg-brand-dark-card border border-zinc-800 text-white px-4 py-3 text-sm focus:border-white outline-none" placeholder="Mario Rossi">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-zinc-400 text-xs font-semibold uppercase mb-2">Email</label>
+                        <input type="email" id="email" required class="w-full bg-brand-dark-card border border-zinc-800 text-white px-4 py-3 text-sm focus:border-white outline-none" placeholder="mario@email.it">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                        <label for="guests" class="block text-zinc-400 text-xs font-semibold uppercase mb-2">Ospiti</label>
+                        <select id="guests" class="w-full bg-brand-dark-card border border-zinc-800 text-white px-4 py-3 text-sm focus:border-white outline-none">
+                            <option value="2">2 Persone</option>
+                            <option value="3">3 Persone</option>
+                            <option value="4">4 Persone</option>
+                            <option value="5+">5+ Persone</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="date" class="block text-zinc-400 text-xs font-semibold uppercase mb-2">Data</label>
+                        <input type="date" id="date" required class="w-full bg-brand-dark-card border border-zinc-800 text-white px-4 py-3 text-sm focus:border-white outline-none">
+                    </div>
+                    <div>
+                        <label for="time" class="block text-zinc-400 text-xs font-semibold uppercase mb-2">Ora</label>
+                        <input type="time" id="time" required value="20:30" class="w-full bg-brand-dark-card border border-zinc-800 text-white px-4 py-3 text-sm focus:border-white outline-none">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="w-full py-4 bg-white text-brand-dark font-bold text-sm uppercase tracking-widest btn-green-hover shadow-lg">
+                        Invia Prenotazione su WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-zinc-400 pt-16 pb-8 border-t border-brand-dark-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+            <!-- Colonna 1: Brand Logo & Descrizione con Social Reali -->
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 relative flex items-center justify-center border border-white/40 rounded">
+                        <span class="font-cursive text-sm text-white font-bold white-neon-text">AM</span>
+                    </div>
+                    <span class="text-xl font-serif font-bold tracking-widest text-white white-neon-text">AL MORÈ</span>
+                </div>
+                <p class="text-sm leading-relaxed mb-6 font-light">
+                    Nel cuore di Messina vicino al Duomo, dove darsi appuntamento per riscoprire la bellezza della cucina locale e della grande mixology d'autore.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/_al_more__/" target="_blank" class="text-zinc-300 hover:text-white transition text-lg" title="Instagram Al Morè"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/61552078015212/?locale=it_IT" target="_blank" class="text-zinc-300 hover:text-white transition text-lg" title="Facebook Al Morè"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <!-- Colonna 2: Contatti -->
+            <div>
+                <h4 class="text-white font-serif font-semibold text-lg mb-4">Contatti</h4>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-zinc-400 mt-1"></i>
+                        <span>Via XXIV Maggio, 59 A/B,<br>98124 Messina (ME)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-zinc-400"></i>
+                        <a href="tel:+393483294135" class="hover:text-white transition">+39 348 329 4135</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-zinc-400"></i>
+                        <a href="mailto:info@almoreristorante.it" class="hover:text-white transition">info@almoreristorante.it</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Colonna 3: Orari di Apertura -->
+            <div>
+                <h4 class="text-white font-serif font-semibold text-lg mb-4">Orari di Apertura</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex justify-between items-center">
+                        <span>Lunedì - Sabato:</span>
+                        <span class="text-white font-semibold">19:30 - 00:00</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Domenica:</span>
+                        <span class="text-zinc-400 font-semibold">Chiuso</span>
+                    </li>
+                </ul>
+                <p class="mt-6 text-xs text-zinc-500 leading-relaxed">
+                    * Consigliamo di contattarci direttamente su WhatsApp per orari festivi e prenotazioni immediate.
+                </p>
+            </div>
+
+            <!-- Colonna 4: La Nostra Posizione Card -->
+            <div>
+                <h4 class="text-white font-serif font-semibold text-lg mb-4">La Nostra Posizione</h4>
+                <div class="bg-brand-dark-card border border-zinc-800 p-6 rounded-md text-center flex flex-col items-center justify-center">
+                    <i class="fa-solid fa-map-location-dot text-white text-3xl mb-3"></i>
+                    <h5 class="text-white font-bold text-sm mb-1">Vicinissimo al Duomo</h5>
+                    <p class="text-xs text-zinc-500 mb-4">Via XXIV Maggio, 59 A/B - 98124</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Al+Morè+Ristorante+Via+XXIV+Maggio+59+Messina" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white hover:underline transition underline-offset-4">
+                        APRI IN GOOGLE MAPS
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Riga Bottom: Copyright & Policy -->
+        <div class="border-t border-zinc-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-500 gap-4">
+            <p>&copy; 2026 Al Morè Ristorante Messina. Tutti i diritti riservati.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-zinc-300 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-zinc-300 transition">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast-success" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-brand-dark-card border border-white p-4 text-white text-sm">
+    Prenotazione inviata con successo!
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
